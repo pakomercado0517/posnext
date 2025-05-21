@@ -1,5 +1,5 @@
+import ProductCard from "@/components/products/ProductCard";
 import { CategoryWithProductsResponseSchema } from "@/src/schemas";
-import ProductCard from "@/components/ProductCard";
 import { redirect } from "next/navigation";
 
 type Params = Promise<{ categoryId: string }>;
