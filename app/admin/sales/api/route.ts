@@ -8,5 +8,22 @@ export async function GET(request: NextRequest) {
   const req = await fetch(url);
   const response = await req.json();
 
-  return Response.json(response);
+  return new Response(JSON.stringify(response), {
+    status: 200,
+    headers: {
+      "Access-Control-Allow-Origin": "*", // o pon tu dominio específico
+      "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type",
+    },
+  });
+}
+export async function OPTIONS() {
+  return new Response(null, {
+    status: 204,
+    headers: {
+      "Access-Control-Allow-Origin": "*", // o pon tu dominio específico
+      "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type",
+    },
+  });
 }
